@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Cursos</title>
+</head>
+<body>
+    <h1>Lista de Cursos</h1>
+
+    <a href="{% url 'curso_create' %}">➕ Crear nuevo curso</a>
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Paralelo</th>
+            <th>Periodo</th>
+            <th>Acciones</th>
+        </tr>
+
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.id }}</td>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.paralelo }}</td>
+            <td>{{ curso.periodo }}</td>
+            <td>
+                <a href="{% url 'curso_detail' curso.pk %}">Ver</a> |
+                <a href="{% url 'curso_edit' curso.pk %}">Editar</a> |
+                <a href="{% url 'curso_delete' curso.pk %}">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay cursos registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

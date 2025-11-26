@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle del Curso</title>
+</head>
+<body>
+
+<h1>Detalle del Curso</h1>
+
+<p><strong>Nombre:</strong> {{ object.nombre }}</p>
+<p><strong>Paralelo:</strong> {{ object.paralelo }}</p>
+<p><strong>Periodo:</strong> {{ object.periodo }}</p>
+
+<br>
+<a href="{% url 'curso_list' %}">⬅ Volver</a>
+
+</body>
+</html>
